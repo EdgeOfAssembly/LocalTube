@@ -1,0 +1,136 @@
+/* Reset default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+/* Header */
+header {
+    background-color: #fff;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #ddd;
+}
+
+.logo {
+    height: 30px;
+    margin-right: 20px;
+}
+
+.search-bar {
+    padding: 5px;
+    width: 300px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+/* Container */
+.container {
+    display: flex;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 200px;
+    background-color: #f1f1f1;
+    padding: 20px;
+    position: fixed;
+    top: 51px; /* Height of header */
+    bottom: 0;
+    overflow-y: auto;
+}
+
+.sidebar a {
+    display: block;
+    padding: 10px;
+    color: #333;
+    text-decoration: none;
+}
+
+.sidebar a:hover {
+    background-color: #ddd;
+}
+
+/* Main Content */
+.main-content {
+    margin-left: 200px;
+    padding: 20px;
+    flex-grow: 1;
+}
+
+/* Video Player */
+.video-wrapper {
+    position: relative;
+    padding-top: 56.25%; /* 16:9 aspect ratio */
+}
+
+.video-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* Sections */
+h2 {
+    margin-bottom: 20px;
+}
+
+.thumbnail-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.thumbnail {
+    text-decoration: none;
+    color: #333;
+}
+
+.thumbnail img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+.thumbnail p {
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+.thumbnail:hover {
+    opacity: 0.9;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 150px;
+    }
+    .main-content {
+        margin-left: 150px;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        flex-direction: column;
+    }
+    .sidebar {
+        position: static;
+        width: 100%;
+    }
+    .main-content {
+        margin-left: 0;
+    }
+    .search-bar {
+        width: 100%;
+    }
+}
