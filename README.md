@@ -35,16 +35,75 @@ Follow these steps to set up LocalTube on your machine:
      ```bash
      cd LocalTube
      ```
-   - Open `index.html` in a text editor and find the `apiKey` variable (around line 52).
+   - Open `index.html` in a text editor and find the `apiKey` variable (around line 63).
    - Replace `'YOUR_API_KEY_HERE'` with your API key.
    - Save and close the file.
 
 ### 3. Launch a Local Web Server
    - Start a simple web server with Python:
      ```bash
-     python -m http.server
+     python3 -m http.server 8000
      ```
    - Open your browser and visit `http://localhost:8000`.
+
+**Note**: For more detailed instructions, including step-by-step guidance and screenshots, check out the [LocalTube_Tutorial.pdf](./LocalTube_Tutorial.pdf) included in this repository.
+
+---
+
+## Optional: Enable Video Downloading
+
+If you’d like to download videos (e.g., in 1080p or higher) through LocalTube instead of just streaming, you’ll need to set up a Python virtual environment and install additional packages (`flask` and `yt-dlp`). This is optional and only necessary if your Linux package manager doesn’t provide these libraries or if you want to enable downloading functionality.
+
+### Prerequisites
+- **Python 3.x** installed on your system (check with `python3 --version`).
+- **pip** (Python package installer, usually included with Python).
+
+### Step-by-Step Instructions
+
+1. **Create a Python Virtual Environment**  
+   This isolates the project’s dependencies from your system Python. In the `LocalTube` directory, run:
+   ```bash
+   python3 -m venv venv
+   ```
+2. **Activate the Virtual Environment**
+   Activate it to use the isolated Python environment:
+   ```bash
+   source venv/bin/activate
+   ```
+   - Your terminal prompt should change (e.g., (venv) appears), indicating the environment is active.
+
+3. **Install Required Packages**
+    Use the provided requirements.txt file to install flask and yt-dlp:
+   ```bash
+   pip install -r requirements.txt
+   ```
+   - This installs flask (for the web server) and yt-dlp (for downloading videos).
+
+4. **Run the Flask Application**
+    Start the Flask server to enable downloading (replace app.py with your actual Flask script name if different):
+   ```bash
+   python3 app.py
+   ```
+   - The server typically runs on http://localhost:8000. Check your script’s output for the exact address.
+
+
+5. **Access LocalTube with Downloading**
+   Open your browser and go to http://localhost:8000 (or the address provided by the Flask server). You can now use
+   LocalTube’s downloading feature.
+
+## Notes
+   - Deactivating the Environment: When done, deactivate the virtual environment with:
+   ```bash
+   deactivate
+   ```
+   - requirements.txt: Ensure this file is in your LocalTube directory with the content:
+   ```bash
+   flask
+   yt-dlp
+   ```
+
+   - Why This Is Optional: The basic streaming setup (using python -m http.server 8000) doesn’t require this. 
+     Only set this up if you want to download videos.
 
 ---
 
