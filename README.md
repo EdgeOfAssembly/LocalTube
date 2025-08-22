@@ -134,4 +134,13 @@ This project is in the **public domain**. Feel free to use, modify, and distribu
 
 ---
 
+## Contact
+For support, feedback, or contributions, feel free to:
+
+- Open an issue on the GitHub Issues page.
+- Email me directly at haxbox2000@gmail.com
+
+
+---
+
 **Enjoy a tracker-free YouTube experience with LocalTube!**
