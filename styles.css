@@ -1,136 +1,478 @@
 /* Reset default styles */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
+/* Base styles (common to all themes) */
 body {
-    font-family: Arial, sans-serif;
+  font-family: 'Segoe UI', Arial, sans-serif; /* Modern font stack */
+  transition: all 0.5s ease-in-out; /* Smooth theme transitions with easing */
 }
 
 /* Header */
 header {
-    background-color: #fff;
-    padding: 10px 20px;
-    display: flex;
-    align-items: center;
-    border-bottom: 1px solid #ddd;
+  padding: 15px 20px;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); /* Subtle depth */
 }
 
 .logo {
-    height: 30px;
-    margin-right: 20px;
+  height: 30px;
+  margin-right: 20px;
+  filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.1)); /* Logo pop */
 }
 
 .search-bar {
-    padding: 5px;
-    width: 300px;
-    border: 1px solid #ccc;
-    border-radius: 3px;
+  padding: 10px 15px;
+  width: 400px;
+  max-width: 100%;
+  border: 1px solid;
+  border-radius: 30px; /* More pill-like for modern feel */
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05); /* Inner depth */
+  font-size: 16px;
+  transition: box-shadow 0.3s ease;
+}
+
+.search-bar:focus {
+  box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.3); /* Focus ring matching search button */
+}
+
+#search-button {
+  padding: 10px 20px;
+  margin-left: 10px;
+  border: none;
+  border-radius: 30px;
+  background: linear-gradient(90deg, #4CAF50, #45a049);
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s, background 0.3s;
+}
+
+#search-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(76, 175, 80, 0.3);
+  background: linear-gradient(90deg, #45a049, #4CAF50);
+}
+
+#search-button:active {
+  transform: translateY(0);
 }
 
 /* Container */
 .container {
-    display: flex;
+  display: flex;
 }
 
 /* Sidebar */
 .sidebar {
-    width: 200px;
-    background-color: #f1f1f1;
-    padding: 20px;
-    position: fixed;
-    top: 51px; /* Height of header */
-    bottom: 0;
-    overflow-y: auto;
+  width: 200px;
+  padding: 20px;
+  position: fixed;
+  top: 61px;
+  bottom: 0;
+  overflow-y: auto;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.05); /* Side depth */
 }
 
 .sidebar a {
-    display: block;
-    padding: 10px;
-    color: #333;
-    text-decoration: none;
+  display: block;
+  padding: 12px;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: background 0.3s ease, color 0.3s ease;
 }
 
 .sidebar a:hover {
-    background-color: #ddd;
+  transform: translateX(5px); /* Subtle slide effect */
 }
 
 /* Main Content */
 .main-content {
-    margin-left: 200px;
-    padding: 20px;
-    flex-grow: 1;
+  margin-left: 200px;
+  padding: 20px;
+  flex-grow: 1;
 }
 
 /* Video Player */
 .video-wrapper {
-    position: relative;
-    padding-top: 56.25%; /* 16:9 aspect ratio */
+  position: relative;
+  padding-top: 56.25%;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1); /* Elevated player */
 }
 
 .video-wrapper iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
 
 /* Sections */
 h2 {
-    margin-bottom: 20px;
+  margin-bottom: 20px;
+  font-size: 1.8em;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1); /* Subtle text depth */
 }
 
+/* Thumbnail Grid */
 .thumbnail-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 20px;
 }
 
 .thumbnail {
-    text-decoration: none;
-    color: #333;
-}
-
-.thumbnail img {
-    width: 100%;
-    height: auto;
-    border-radius: 5px;
-}
-
-.thumbnail p {
-    margin-top: 10px;
-    font-size: 14px;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  overflow: hidden;
+  position: relative;
 }
 
 .thumbnail:hover {
-    opacity: 0.9;
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.thumbnail img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  transition: transform 0.3s ease;
+}
+
+.thumbnail:hover img {
+  transform: scale(1.05); /* Zoom on hover */
+}
+
+.thumbnail p {
+  margin-top: 10px;
+  font-size: 1em;
+  line-height: 1.4;
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
-    .sidebar {
-        width: 150px;
-    }
-    .main-content {
-        margin-left: 150px;
-    }
+  .sidebar {
+    width: 150px;
+  }
+  .main-content {
+    margin-left: 150px;
+  }
 }
 
 @media (max-width: 480px) {
-    .container {
-        flex-direction: column;
-    }
-    .sidebar {
-        position: static;
-        width: 100%;
-    }
-    .main-content {
-        margin-left: 0;
-    }
-    .search-bar {
-        width: 100%;
-    }
+  .container {
+    flex-direction: column;
+  }
+  .sidebar {
+    position: static;
+    width: 100%;
+  }
+  .main-content {
+    margin-left: 0;
+  }
+  .search-bar {
+    width: 100%;
+  }
+}
+
+/* Common settings menu styles - minimalist */
+#settingsMenu {
+  margin-top: 20px;
+}
+
+.settings-content {
+  padding: 15px;
+  border: 1px solid;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+label {
+  display: block;
+  margin-top: 10px;
+  font-weight: 500;
+}
+
+select, input {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+  border: 1px solid;
+  border-radius: 8px;
+  box-sizing: border-box;
+  transition: border-color 0.3s ease;
+}
+
+select:focus, input:focus {
+  border-color: #4CAF50;
+}
+
+/* Theme-specific styles - dialed to eleven with CSS3 */
+
+/* Default (Elegant Light) - As beautiful as possible: Soft gradients, subtle animations, clean elegance */
+body.default {
+  background: linear-gradient(135deg, #f6f9fc 0%, #ffffff 100%); /* Soft sky-like gradient */
+  color: #333333;
+}
+
+body.default header {
+  background: linear-gradient(to right, #ffffff, #f0f0f0);
+  border-bottom-color: #e0e0e0;
+}
+
+body.default .search-bar {
+  border-color: #d0d0d0;
+  background-color: #ffffff;
+  color: #333333;
+}
+
+body.default .sidebar {
+  background: linear-gradient(to bottom, #f8f9fa, #e9ecef); /* Layered gradient */
+}
+
+body.default .sidebar a {
+  color: #495057;
+}
+
+body.default .sidebar a:hover {
+  background-color: rgba(233, 236, 239, 0.8);
+}
+
+body.default .thumbnail {
+  color: #495057;
+  background-color: #ffffff;
+}
+
+body.default .thumbnail::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.05)); /* Subtle overlay */
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+body.default .thumbnail:hover::before {
+  opacity: 1;
+}
+
+body.default button {
+  background-color: #f8f9fa;
+  border: 1px solid #dee2e6;
+  color: #495057;
+  padding: 8px 12px;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: background 0.3s, box-shadow 0.3s;
+}
+
+body.default button:hover {
+  background-color: #e9ecef;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+body.default #progress-container {
+  color: #495057;
+}
+
+body.default .settings-content {
+  border-color: #dee2e6;
+  background-color: #f8f9fa;
+}
+
+body.default select, body.default input[type="text"] {
+  border-color: #ced4da;
+  background-color: #ffffff;
+  color: #495057;
+}
+
+/* Dark Mode - Enhanced: Deeper contrasts, subtle glows */
+body.dark {
+  background: linear-gradient(135deg, #121212 0%, #1e1e1e 100%); /* Rich dark gradient */
+  color: #e0e0e0;
+}
+
+body.dark header {
+  background: linear-gradient(to right, #1e1e1e, #2a2a2a);
+  border-bottom-color: #333333;
+}
+
+body.dark .search-bar {
+  border-color: #444444;
+  background-color: #2a2a2a;
+  color: #e0e0e0;
+}
+
+body.dark .sidebar {
+  background: linear-gradient(to bottom, #1e1e1e, #121212);
+}
+
+body.dark .sidebar a {
+  color: #bbbbbb;
+}
+
+body.dark .sidebar a:hover {
+  background-color: rgba(68, 68, 68, 0.8);
+}
+
+body.dark .thumbnail {
+  color: #bbbbbb;
+  background-color: #1e1e1e;
+}
+
+body.dark .thumbnail:hover {
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5); /* Deeper shadow */
+}
+
+body.dark button {
+  background-color: #2a2a2a;
+  border: 1px solid #444444;
+  color: #e0e0e0;
+  padding: 8px 12px;
+  cursor: pointer;
+  border-radius: 8px;
+}
+
+body.dark button:hover {
+  background-color: #333333;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.1); /* Subtle glow */
+}
+
+body.dark #progress-container {
+  color: #bbbbbb;
+}
+
+body.dark .settings-content {
+  border-color: #444444;
+  background-color: #1e1e1e;
+}
+
+body.dark select, body.dark input[type="text"] {
+  border-color: #444444;
+  background-color: #2a2a2a;
+  color: #e0e0e0;
+}
+
+body.dark .thumbnail img {
+  filter: brightness(0.85) contrast(1.1); /* Enhanced visibility */
+}
+
+/* Cyberpunk (Futuristic/Cyberpunk/Rebellious) - Neon vibes, glitch effects, bold contrasts */
+body.cyber {
+  background: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%); /* Deep purple-blue cyber gradient */
+  color: #00ffcc; /* Neon teal text */
+}
+
+body.cyber header {
+  background: linear-gradient(to right, #24243e, #302b63);
+  border-bottom-color: #00ffcc; /* Neon border */
+  box-shadow: 0 4px 12px rgba(0, 255, 204, 0.2); /* Glowing shadow */
+}
+
+body.cyber .search-bar {
+  border-color: #ff00ff; /* Magenta border */
+  background-color: rgba(36, 36, 62, 0.8);
+  color: #00ffcc;
+  box-shadow: 0 0 10px rgba(0, 255, 204, 0.3); /* Neon glow */
+}
+
+body.cyber .sidebar {
+  background: linear-gradient(to bottom, #302b63, #0f0c29);
+}
+
+body.cyber .sidebar a {
+  color: #ff00ff; /* Magenta links */
+  text-shadow: 0 0 5px rgba(255, 0, 255, 0.5); /* Glowing text */
+}
+
+body.cyber .sidebar a:hover {
+  background-color: rgba(255, 0, 255, 0.1);
+  color: #00ffcc;
+  animation: glitch 0.5s linear infinite; /* Glitch hover effect */
+}
+
+@keyframes glitch {
+  0% { transform: translate(0); }
+  20% { transform: translate(-2px, 2px); }
+  40% { transform: translate(2px, -2px); }
+  60% { transform: translate(-2px, 2px); }
+  80% { transform: translate(2px, -2px); }
+  100% { transform: translate(0); }
+}
+
+body.cyber .thumbnail {
+  color: #00ffcc;
+  background-color: rgba(15, 12, 41, 0.8);
+  border: 1px solid #ff00ff;
+  box-shadow: 0 0 15px rgba(255, 0, 255, 0.3);
+}
+
+body.cyber .thumbnail:hover {
+  box-shadow: 0 0 20px rgba(0, 255, 204, 0.5);
+  animation: glitch 0.3s linear;
+}
+
+body.cyber .thumbnail img {
+  filter: contrast(1.2) saturate(1.5); /* Vibrant cyber look */
+}
+
+body.cyber button {
+  background: linear-gradient(90deg, #ff00ff, #00ffcc);
+  border: none;
+  color: #000000;
+  padding: 8px 12px;
+  cursor: pointer;
+  border-radius: 8px;
+  text-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
+}
+
+body.cyber button:hover {
+  background: linear-gradient(90deg, #00ffcc, #ff00ff);
+  box-shadow: 0 0 15px rgba(255, 0, 255, 0.5);
+  animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+body.cyber #progress-container {
+  color: #00ffcc;
+}
+
+body.cyber .settings-content {
+  border-color: #ff00ff;
+  background-color: rgba(48, 43, 99, 0.8);
+  box-shadow: 0 0 15px rgba(0, 255, 204, 0.3);
+}
+
+body.cyber select, body.cyber input[type="text"] {
+  border-color: #ff00ff;
+  background-color: rgba(36, 36, 62, 0.8);
+  color: #00ffcc;
+}
+
+/* Ensure iframe and other elements adapt */
+body.dark .thumbnail img, body.cyber .thumbnail img {
+  filter: brightness(0.9);
 }
