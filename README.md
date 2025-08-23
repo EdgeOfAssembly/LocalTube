@@ -35,16 +35,15 @@ Follow these steps to set up LocalTube on your machine:
      ```bash
      cd LocalTube
      ```
-   - Open `index.html` in a text editor and find the `apiKey` variable (around line 63).
-   - Replace `'YOUR_API_KEY_HERE'` with your API key.
-   - Save and close the file.
-
-### 3. Launch a Local Web Server
    - Start a simple web server with Python:
      ```bash
      python3 -m http.server 8000
      ```
    - Open your browser and visit `http://localhost:8000`.
+
+   - Give your YouTube API key when asked and from 
+     Settings on the left click it open, make sure the API key is there
+     ans then click Save Settings.
 
 **Note**: For more detailed instructions, including step-by-step guidance and screenshots, check out the [LocalTube_Tutorial.pdf](./LocalTube_Tutorial.pdf) included in this repository.
 
